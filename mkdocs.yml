@@ -1,0 +1,12 @@
+site_name: 1lotus
+site_description: Arquitetura e operacao do ecossistema Lotus
+dev_addr: 127.0.0.1:7771
+docs_dir: docs
+strict: true
+nav:
+  - Início: index.md
+  - Arquitetura: architecture.md
+  - Repositórios: repositories.md
+  - Promoção: promotion.md
+  - Migração: migration-runbook.md
+
