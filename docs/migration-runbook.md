@@ -15,8 +15,10 @@
 - A outbox persistente do 2lotus entrega eventos autenticados ao SQLite do
   3lotus; duplicatas são tratadas por `event_id`.
 - O terminal MT5 isolado antigo está inativo e o preset existente mantém
-  `EnableOrderExecution=false`. Nenhum EA foi apontado automaticamente para o
-  runner novo.
+  um contrato incompatível com o runner novo. Em 2026-09-29 foi encontrado em
+  loop de reinício, com `EnableOrderExecution=true`; a unit foi interrompida e
+  desabilitada, e o preset instalado foi preservado no backup. Nenhum EA legado
+  foi apontado automaticamente para o runner novo.
 - Execute `scripts/check-staging.sh` antes e depois de toda mudança.
 
 ## Corte
@@ -25,8 +27,10 @@
 2. Confirmar hash e versão do bundle instalado no runner.
 3. Drenar a outbox e suspender execução.
 4. Atualizar o WebRequest do MT5 para `127.0.0.1:7772`.
-5. Executar smoke test em demo e comparar a decisão shadow.
-6. Manter os serviços antigos disponíveis para rollback por cinco sessões.
+5. Compilar e anexar `LotusRunnerBridge.mq5`, carregando exclusivamente
+   `LotusRunnerBridge-shadow.set`; não reutilizar o preset do EA legado.
+6. Executar smoke test em demo e comparar a decisão shadow.
+7. Manter os serviços antigos disponíveis para rollback por cinco sessões.
 
 O corte de diretórios só deve acontecer após as cinco sessões. Até lá,
 `/home/codexops/projects-next` é o ambiente candidato e
