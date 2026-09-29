@@ -19,6 +19,13 @@
   loop de reinício, com `EnableOrderExecution=true`; a unit foi interrompida e
   desabilitada, e o preset instalado foi preservado no backup. Nenhum EA legado
   foi apontado automaticamente para o runner novo.
+- O novo `LotusRunnerBridge.ex5` foi compilado em 2026-09-29 sem erros ou
+  warnings e carregado uma vez na conta demo em modo shadow. O build recusa
+  inicializar se `EnableOrderExecution=true`, portanto não há caminho de ordem
+  neste artefato de migração.
+- A whitelist WebRequest do MT5 ainda contém somente `127.0.0.1:1112`.
+  Acrescentar `http://127.0.0.1:7772` em **Tools → Options → Expert Advisors**
+  é pré-requisito para a primeira decisão originada pelo terminal.
 - Execute `scripts/check-staging.sh` antes e depois de toda mudança.
 
 ## Corte
