@@ -26,6 +26,8 @@
 - A whitelist WebRequest do MT5 ainda contém somente `127.0.0.1:1112`.
   Acrescentar `http://127.0.0.1:7772` em **Tools → Options → Expert Advisors**
   é pré-requisito para a primeira decisão originada pelo terminal.
+  Uma sessão de prova confirmou que o EA carrega na conta demo, mas o runner
+  não recebe ticks enquanto essa URL não estiver autorizada.
 - Execute `scripts/check-staging.sh` antes e depois de toda mudança.
 
 ## Corte
